@@ -127,7 +127,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color statusTextColor = status == 'Pending' ? Colors.red : Colors.black;
+    Color statusTextColor = status == 'Accepted' ? Colors.red : Colors.black;
 
     return Card(
       color: const Color(0xFF67B0DA),
@@ -181,7 +181,7 @@ class ProductCard extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: CustomText(
-                      text: status,
+                      text: 'Status: $status',
                       size: 14,
                       color: statusTextColor,
                       weight: FontWeight.normal,

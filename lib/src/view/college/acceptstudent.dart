@@ -56,7 +56,7 @@ class CustomAcceptRejectButton extends StatelessWidget {
 }
 
 class CollegAcceptStudent extends StatefulWidget {
-  const CollegAcceptStudent({Key? key});
+  const CollegAcceptStudent({Key? key}) : super(key: key);
 
   @override
   State<CollegAcceptStudent> createState() => _CollegAcceptStudentState();
@@ -161,6 +161,13 @@ class _CollegAcceptStudentState extends State<CollegAcceptStudent> {
                   },
                   // Disable the reject button if status is accepted
                   rejectButtonEnabled: !isAccepted,
+                ),
+                const SizedBox(height: 8),
+                CustomText(
+                  text: 'Status: ${userData['status'] ?? 'Pending'}',
+                  size: 16,
+                  color: Colors.black,
+                  weight: FontWeight.normal,
                 ),
               ],
             ),

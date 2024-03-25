@@ -72,6 +72,7 @@ class _UserProductListsState extends State<UserProductLists> {
                 stream: FirebaseFirestore.instance
                     .collection('products')
                     .where('category', isEqualTo: widget.category)
+                    .where('status', isEqualTo: 'Accepted')
                     .snapshots(),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {

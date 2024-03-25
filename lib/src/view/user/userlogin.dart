@@ -99,6 +99,7 @@ class _UserLoginState extends State<UserLogin> {
                                   .instance
                                   .collection('users')
                                   .where('email', isEqualTo: email)
+                                  .where('status', isEqualTo: 'Accepted')
                                   .limit(1)
                                   .get();
 

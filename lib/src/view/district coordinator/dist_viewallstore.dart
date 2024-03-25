@@ -63,10 +63,9 @@ class _DistViewAllCoordinatorState extends State<DistViewAllCoordinator> {
                   String coordinatorName = data['name'] ?? 'Unknown';
                   String email = data['email'] ?? 'Unknown';
                   String phoneNumber = data['phoneNumber'] ?? 'Unknown';
+                  String status = data['status'] ?? 'Pending';
 
-                  // Displaying the data in a card
                   return Container(
-                    height: 130,
                     width: double.maxFinite,
                     child: Card(
                       color: Color(0xFF67B0DA),
@@ -97,6 +96,13 @@ class _DistViewAllCoordinatorState extends State<DistViewAllCoordinator> {
                               text: 'Phone number: ${phoneNumber ?? 'Unknown'}',
                               size: 16,
                               color: Colors.white,
+                              weight: FontWeight.normal,
+                            ),
+                            SizedBox(height: 8),
+                            CustomText(
+                              text: 'Status: ${status ?? 'Pending'}',
+                              size: 16,
+                              color: Colors.black,
                               weight: FontWeight.normal,
                             ),
                           ],

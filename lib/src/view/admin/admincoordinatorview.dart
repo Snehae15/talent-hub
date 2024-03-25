@@ -16,7 +16,7 @@ class _AdminCoordinatorViewState extends State<AdminCoordinatorView> {
     return Scaffold(
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
-            .collection('Distric-coordinator')
+            .collection('District-coordinator')
             .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -38,7 +38,12 @@ class _AdminCoordinatorViewState extends State<AdminCoordinatorView> {
               final status = storekeeperData['status'] ?? '';
               final isAccepted = status == 'Accepted';
               return _buildCard(
-                  storekeeperName, email, phoneNumber, isAccepted);
+                storekeeperName,
+                email,
+                phoneNumber,
+                status,
+                isAccepted,
+              );
             },
           );
         },
@@ -47,7 +52,7 @@ class _AdminCoordinatorViewState extends State<AdminCoordinatorView> {
   }
 
   Widget _buildCard(String storekeeperName, String email, String phoneNumber,
-      bool isAccepted) {
+      String status, bool isAccepted) {
     return Card(
       color: Color(0xFF67B0DA),
       elevation: 4,
@@ -101,6 +106,13 @@ class _AdminCoordinatorViewState extends State<AdminCoordinatorView> {
                 ),
               ],
             ),
+            SizedBox(height: 8),
+            CustomText(
+              text: 'Satus: $status',
+              size: 16,
+              color: Colors.red,
+              weight: FontWeight.normal,
+            ),
           ],
         ),
       ),
@@ -109,7 +121,7 @@ class _AdminCoordinatorViewState extends State<AdminCoordinatorView> {
 
   void _updateStatus(String email, String status) {
     FirebaseFirestore.instance
-        .collection('Distric-coordinator')
+        .collection('District-coordinator')
         .where('email', isEqualTo: email)
         .get()
         .then((querySnapshot) {

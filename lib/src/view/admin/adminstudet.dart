@@ -49,7 +49,7 @@ class AdminViewStudent extends StatelessWidget {
               children: [
                 CustomText(
                   text: userData['name'] ?? 'No Name',
-                  size: 20,
+                  size: 22,
                   weight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -80,6 +80,13 @@ class AdminViewStudent extends StatelessWidget {
                   text: 'Phone: ${userData['phoneNumber'] ?? 'No Phone'}',
                   size: 16,
                   color: Colors.white,
+                  weight: FontWeight.normal,
+                ),
+                const SizedBox(height: 8),
+                CustomText(
+                  text: 'Satus: ${userData['status'] ?? 'Pending'}',
+                  size: 16,
+                  color: Colors.black,
                   weight: FontWeight.normal,
                 ),
               ],

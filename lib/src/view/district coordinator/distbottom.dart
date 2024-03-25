@@ -1,6 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:talenthub/src/view/district%20coordinator/dist_viewallcoordinator.dart';
+import 'package:talenthub/src/view/district%20coordinator/dist_viewallstore.dart';
 import 'package:talenthub/src/view/district%20coordinator/distprofile.dart';
 
 class DistBottomNavigation extends StatefulWidget {
